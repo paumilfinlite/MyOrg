@@ -1,0 +1,16 @@
+<apex:page Controller="redirectToAnotherPageController">
+    <script>
+    function Redirect(){
+        window.location.href = '/' + aId;
+    }
+    </script>
+    <apex:form id="frm">
+        <apex:commandButton value="Save" action="{!print}" oncomplete="Redirect();" rerender="script_block"/>
+        <apex:outPutPanel id="script_block">
+           <apex:inputfield value="{!contact.AccountId}" id="acc"/>
+            <script>
+            aId = '{!contact.AccountId}';
+            </script>
+        </apex:outPutPanel>
+    </apex:form>
+</apex:page>

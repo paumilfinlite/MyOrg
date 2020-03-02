@@ -1,0 +1,171 @@
+<apex:page showHeader="true" sidebar="false" standardController="Product2" extensions="curdOPerationController">
+        <style type="text/css">
+            .slds-notify--toast{
+            background-color:#5C7092;
+            heigth:10px;
+            width:50%;
+            font-size:15px;
+            color:white;}
+            .margintop{
+            margin-top:20px;
+            }
+            .dateFormat{
+            font-size:11px;
+            
+            .spinnerBg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #000;
+            opacity: 0.5;
+            z-index: 10000;
+            }
+            .spinner{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: url("{!URLFOR($Resource.SLDS100, '/assets/images/spinners/slds_spinner_brand.gif')}");
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            z-index: 10000;
+            opacity: 1;
+            }  
+        </style>
+        
+        <style type="text/css">
+            .hidden {display: none;}
+            .lookupInput a{display:block;position:absolute;top:0px;}
+            .lookupInput img{float:right;display:none;}
+            span.lookupInput{position:relative;display:inherit;}
+            .lookupInput a, .lookupInput a{border:none !important;background:none !important}
+        </style>
+        
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS100, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+        <apex:includeScript value="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"/>
+
+        <apex:form >
+            <div class="slds">
+                    <apex:actionStatus id="spinnerStatus">
+                            <apex:facet name="start">
+                                <div class="slds-spinner_container" style="opacity: 0.5;background-color: #000;">
+                                    <div class="slds-modal-backdrop slds-modal-backdrop--open" style=" z-index: 10000;">
+                                        <div style="position:fixed; top: 50%; left: 50%; margin-top: -45px; margin-left: -45px;">
+                                            <img src="{!URLFOR($Resource.SLDS103,'/assets/images/spinners/slds_spinner_brand.gif')}" style="width:75px;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </apex:facet>
+                    </apex:actionStatus> 
+
+                        <apex:outputPanel > 
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#new">New</a></li>
+                                <li><a data-toggle="tab" href="#update">Update</a></li>
+                                <li><a data-toggle="tab" href="#clone">Clone</a></li>
+                            </ul><br/>
+                        </apex:outputPanel>
+                        
+<!-- #################################################----Insert code start----############################################################ -->
+
+                     <div class="tab-content">
+                         <div class="tab-pane fade in active">
+                             <apex:pageBlock id="insertId" mode="maindetail">
+                                 <apex:actionRegion >
+                                     <apex:outputPanel >
+                                         <div>
+                                             <div class="row">
+                                                    <div class="col-sm-1">
+                                                        <apex:outputLabel value="Category :" styleClass="slds-form-element__label"/>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <apex:actionRegion >
+                                                            <apex:inputField value="{!insertProduct.Category__c}" styleClass="slds-input slds-size--6-of-6"/>
+                                                            <apex:actionSupport action="{!insertFunction}" event="onchange" status="spinnerStatus"/>
+                                                        </apex:actionRegion>
+                                                    </div>
+                                                    <apex:outputPanel id="insertProductName" rendered="name">
+                                                        <div class="col-sm-1">
+                                                            <apex:outputLabel value="Product Name :" styleClass="slds-form-element__label"/>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <apex:inputField value="{!insertproduct.Name}" styleClass="slds-truncate slds-select slds-size--6-of-6"/>
+                                                        </div>
+                                                    </apex:outputPanel>
+
+                                                    <div class="col-sm-1">
+                                                        <apex:outputLabel value="Unit :" styleClass="slds-form-element__label"/>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <apex:inputField value="{!insertproduct.Unit__c}" styleClass="slds-truncate slds-select slds-size--6-of-6" style="padding: 0;"/>       
+                                                    </div>
+                                             </div><br/>
+                                             <div class="row">
+                                                    <apex:outputPanel id="milimiterId">
+                                                            <div class="col-sm-1">
+                                                                    <apex:outputLabel value="Millimeter:" styleClass="slds-form-element__label"/>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <apex:inputField value="{!insertproduct.Millimeter__c}" styleClass="slds-truncate slds-select slds-size--6-of-6" style="padding: 0;"/>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <apex:outputLabel value="Micron:" styleClass="slds-form-element__label"/>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <apex:inputField value="{!insertproduct.Micron__c}" styleClass="slds-truncate slds-select slds-size--6-of-6" style="padding: 0;"/>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <apex:outputLabel value="Film Category :" styleClass="slds-form-element__label"/>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <apex:inputField value="{!insertproduct.Film_Category__c}" styleClass="slds-truncate slds-select slds-size--6-of-6"/>   
+                                                                </div>
+                                                    </apex:outputPanel>
+                                             </div><br/>
+                                             <apex:outputPanel id="adhesiveCategory" >
+                                                 <div class="row">
+                                                    <div class="col-sm-1">
+                                                        <apex:outputLabel value="Adhesive Category:" styleClass="slds-form-element__label"/>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <apex:inputField value="{!insertproduct.Adhesive_Category__c}" styleClass="slds-truncate slds-select slds-size--6-of-6" required="true"/>
+                                                    </div>
+                                                 </div><br/>
+                                             </apex:outputPanel>
+                                             <apex:outputPanel id="productDescriptionId">
+                                                 <div class="row">
+                                                    <div class="col-sm-1">
+                                                        <apex:outputLabel value="Product Description:" styleClass="slds-form-element__label"/>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <apex:inputField value="{!insertproduct.Product_Description__c}" styleClass="slds-truncate slds-select slds-size--6-of-6"/>
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <apex:outputLabel value="HSN Code:" styleClass="slds-form-element__label"/>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <apex:inputField value="{!insertproduct.HSN_Code__c}" styleClass="slds-truncate slds-select slds-size--6-of-6"/>
+                                                    </div>
+                                                 </div>
+                                             </apex:outputPanel>
+                                         </div>
+                                     </apex:outputPanel>
+                                     <div class="row">
+                                         <center>
+                                             <apex:outputPanel id="insertBtnId" rendered="insertBtnShow">
+                                                 <apex:commandButton value="Create Product" style="background:#5C7092;color:white; margin-top:10px;margin-left:10px;" />
+                                             </apex:outputPanel>
+                                         </center>
+                                     </div>
+                                 </apex:actionRegion>
+                             </apex:pageBlock>
+                         </div>
+                                    <!-- ############################################################################################# -->
+                     </div>
+            </div>
+        </apex:form>
+  
+</apex:page>

@@ -1,0 +1,558 @@
+<apex:page renderAs="PDF" applyBodyTag="false">
+  <head>
+     <style>
+                           
+                             @page {
+                                    //size: letter;
+                                    //margin: 25mm;
+                                    //size: 8.5in 11in;
+                                    //margin: 220px 30px 80px 45px;
+                                    padding-top: 60px;
+                                    
+                                   @top-center {
+                                                  content: element(header);
+                                                  
+                                               }
+
+                                   @bottom-left {
+                                                   content: element(footer);
+                                                }
+                                   
+                                  }
+                                  
+                                  div.header {
+                                           padding:15px;
+                                           position: running(header);
+                                             }
+
+                                  div.footer       {
+                                                    display: block;
+                                                    padding:0px;
+                                                    margin-bottom:50px;
+                                                    position: running(footer);
+                                                    }
+                                   div.content {
+                                      //padding:80px;
+                                      page-break-after:avoid;
+                                      margin-left: 10px;
+                                      margin-right: 10px;
+                                      
+                                      font-family: "Times New Roman", Times, serif;
+                                      color:#111111;
+                                        } 
+                                   h1 {
+                                    color:#6e6c70;
+                                   }
+                                   
+                             
+.invtable table,
+.invtable td,
+.invtable th {    
+    //border: 1px solid #ddd;
+    text-align: center;
+}
+
+.invtable table {
+    //border-collapse: collapse;
+    width: 100%;
+    
+}
+.invtable th{
+ background-color:#F1F0EF !important;
+}
+.invtable th,
+.invtable td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}                 
+   </style>
+   <style>
+    .serif{
+    font-family: myFirstFont;
+    }
+   </style>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+ </head>
+ 
+ <apex:form >
+<body style="margin: 0px;font-size: 14px">
+<div class="header">
+        <h1 class="header-top"> MALLINATH TRADING COMPANY (MTC)</h1>
+        <p class="tagline">Balance Sheet</p>
+        <span class="subtagline"> 01 Apr 19 To 31 Mar 20 </span>
+    </div>
+    <div class="content">
+        
+    <table style="width: 100%;font-size: 14px;border-spacing: 0px;padding: 0px;-fs-table-paginate: paginate;">
+        
+        <thead style="">
+            
+         
+        
+            <tr style="border-spacing: 0px;padding: 0px;">
+                <th style="border-spacing: 0px;padding: 0px;">
+                    <table style="width:100%;border-spacing:0px;height: 100%;border-right:1px solid #000;">
+                      <thead style="">
+                        <tr>
+                           <th style="text-align: left;border-top:1px solid #000;border-spacing: 0px;border-bottom: 1px solid #000;">Liabilities</th>
+                           <th style="border-top:1px solid #000;border-spacing: 0px;border-bottom: 1px solid #000;"> As at 31 Mar 20</th>
+                        </tr>
+                     </thead>
+                     </table>
+                </th>
+                <th style="border-spacing: 0px;padding: 0px;">
+                     <table style="width:100%;border-spacing:0px;height: 100%;">
+                     <thead>
+                        <tr>
+                           <th style="border-top:1px solid #000;border-spacing: 0px;border-bottom: 1px solid #000;text-align: left;">Assets</th>
+                           <th style="border-top:1px solid #000;border-spacing: 0px;border-bottom: 1px solid #000;"> As at 31 Mar 20</th>
+                        </tr>
+                     </thead>
+                     </table>
+                </th>
+            </tr>
+         </thead>
+       
+         <tbody class="content">
+            <tr>
+            <td style="vertical-align: top;padding: 0px;border-spacing: 0px;border-right:1px solid #000;width:50%;">
+                <table style="width:100%;margin: 0 auto;border-spacing:0px;height: 100%;">
+         <tbody>
+            <tr>
+               <td style="border-spacing: 0px;padding: 0px;vertical-align: top;width:50%;">
+                  <table style="width:100%;border-spacing:0px;height: 100%;">
+                     
+                     <tbody>
+                        <tr>
+                           <td style="vertical-align: top;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;vertical-align: top;border-bottom: none;"> Capital Account</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;vertical-align: top;width:75%;"> SURESH M MEHTA (PROPRIETOR)</td>
+                                       <td style="text-align: right;vertical-align: top;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 11,181,278.15</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 11,181,278.15</td>
+                        </tr>
+                        <tr>
+                           <td style="vertical-align: top;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;vertical-align: top;border-bottom: none;"> Current Liabilities</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;vertical-align: top;width:75%;"> Duties &amp; Taxes</td>
+                                       <td style="text-align: right;vertical-align: top;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 369,050.79</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;vertical-align: top;width:75%;"> Sundry Creditors</td>
+                                       <td style="text-align: right;vertical-align: top;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 76,976.58</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;vertical-align: top;width:75%;"> XXXX PENDING XXXX</td>
+                                       <td style="text-align: right;vertical-align: top;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 9,000.00</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 455,027.37</td>
+                        </tr>
+                        <tr>
+                           <td style="vertical-align: top;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;vertical-align: top;border-bottom: none;"> Profit &amp; Loss A/c</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 4,303,529.21</td>
+                        </tr>
+                     </tbody>
+                     
+                  </table>
+               </td>
+               
+            </tr>
+         </tbody>
+      </table>
+            </td>
+         <td style="width:50%">
+                <table style="width:100%;margin: 0 auto;border-spacing:0px;height: 100%;">
+         <tbody>
+            <tr>
+               
+               <td style="border-spacing: 0px;padding: 0px;vertical-align: top;width:50%;">
+                  <table style="width:100%;border-spacing:0px;height: 100%;">
+                     
+                     <tbody>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Loans (Liability)</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Unsecured Loans</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,095,782.00</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 1,095,782.00</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Branch / Divisions</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> MUTHA LABELS CORPORATION (CAPITAL - 25%)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 714,999.63</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> MUTHA LABELS CORPORATION (FIX CAPITAL)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 10,000.00</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 724,999.63</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Fixed Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> AIR CONDITION</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 26,687.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> I PHONE</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 18,623.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> LIFT</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 164,592.00</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 209,902.00</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Investments</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> MF INVESTMENT</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 125,923.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> SHARE INVESTMENT</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 2,066,736.19</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> SHOPS &amp; LAND INVESTMENT</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 3,797,513.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> ADVANCE TAX</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 150,011.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> LIC INVESTMENT - 16/17</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 250,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> PPF - BOI</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 215,114.00</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 6,605,297.19</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        <tr>
+                           <td style="font-size: 16px;">
+                              <table style="width:100%;border-spacing:0px;" class="last-table">
+                                 <tbody>
+                                    <tr>
+                                       <td colspan="2" style="font-weight: bold;font-size: 18px;word-break: break-word;border-bottom: none;"> Current Assets</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Closing Stock</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 412,931.64</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Loans &amp; Advances (Asset)</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 450,000.00</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Sundry Debtors</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 4,104,642.69</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Cash-in-hand</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 730,713.11</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> Bank Accounts</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 1,584,666.51</td>
+                                    </tr>
+                                    <tr>
+                                       <td style="padding-left: 15px;width:75%;"> KOTAK SECURITES</td>
+                                       <td style="text-align: right;width:25%;white-space: pre;vertical-align: bottom;"> ₹ 20,899.96</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </td>
+                           <td style="font-weight: bold;font-size: 16px;vertical-align: top;text-align: right;padding-right: 15px;white-space: pre;"> ₹ 7,303,853.91</td>
+                        </tr>
+                        
+                     </tbody>
+                     
+                  </table>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+            </td>
+        </tr>
+       
+      
+        <!-- The automaticaly repeated table footer -->
+        <!-- To disable the repeating of the footer add style="display: table-row-group" to tfoot -->
+        </tbody>
+        
+        <tfoot style="border-spacing: 0px;padding: 0px;" class="footer">
+        
+            <tr>
+                <td style="padding: 0px;border-spacing: 0px;width:50%;border-right: 1px solid #000;">
+                    <table style="width:100%;border-spacing: 0px;padding: 0px;">
+                           <tbody>
+                               <tr>
+                                   <td style="border-top:1px solid #000;border-bottom: 1px solid #000;text-align: left;padding-left: 15px;font-weight: bold;">Total</td>
+                           <td style="border-top:1px solid #000;border-bottom: 1px solid #000;text-align: right;padding-right: 15px;font-weight: bold;"> ₹ 15,939,834.73</td>
+                                </tr>
+                           </tbody>
+                    </table>
+                    </td>
+           
+             
+                <td style="border-spacing: 0px;padding: 0px;width:50%;">
+                    <table style="width:100%;border-spacing: 0px;padding: 0px;">
+                           <tbody>
+                               <tr>
+                                   <td style="border-top:1px solid #000;border-bottom: 1px solid #000;text-align: left;padding-left: 15px;font-weight: bold;">Total</td>
+                           <td style="border-top:1px solid #000;border-bottom: 1px solid #000;text-align: right;padding-right: 15px;font-weight: bold;"> ₹ 15,939,834.73</td>
+                               </tr>
+                           </tbody>
+                    </table>
+                    </td>
+             </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body> 
+ </apex:form>
+</apex:page>

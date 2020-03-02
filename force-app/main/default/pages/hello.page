@@ -1,0 +1,13 @@
+<apex:page Controller="helloController">
+ <apex:form >
+<p>helow....</p>
+ <!-- <apex:pageBlockButtons >
+ <apex:commandButton action=”{!save}” value=”Save”/>
+ </apex:pageBlockButtons>
+ <apex:pageBlockSection title=”My Content Section”
+columns=”2”>
+ <apex:inputField value=”{!account.name}”/> -->
+
+
+ </apex:form>
+</apex:page>

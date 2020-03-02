@@ -1,0 +1,32 @@
+<apex:page controller="headerTestController">
+  
+    MainValue:<br/>
+    <label id="mainvalue1"><apex:outputText value="{!a}"/></label>
+    <br/><br/>
+    
+    Indian Currency
+    <label id="convertedvalue2"></label>  
+    
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+
+
+            //Rupees currency
+            var x = document.getElementById('mainvalue1').textContent.toString();
+            var afterPoint = '';
+            if(x.indexOf('.') > 0)
+                afterPoint = x.substring(x.indexOf('.'),x.length);//afterpoint value stored saperately
+            x = Math.floor(x);
+            x=x.toString();
+            var lastThree = x.substring(x.length-3); //last three saved saperately
+            var otherNumbers = x.substring(0,x.length-3); //other numner saperated with comma
+            if(otherNumbers != '')
+                lastThree = ',' + lastThree;
+            var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+            document.getElementById('convertedvalue2').innerHTML = res;
+
+      });
+      </script>
+
+</apex:page>

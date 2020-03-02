@@ -1,0 +1,11 @@
+<apex:page controller="headerTestController">
+    MainValue:<br/>
+    <label id="mainvalue1"><apex:outputText value="{!a}"/></label>
+    <br/><br/>
+    Other Currency
+    <label id="convertedvalue1"></label>
+    <br/><br/>
+    Indian Currency
+    <label id="convertedvalue2"></label> <br/>
+    result:<apex:outputText value="{!result}"></apex:outputText>
+</apex:page>
