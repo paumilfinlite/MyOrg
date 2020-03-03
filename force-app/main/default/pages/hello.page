@@ -1,8 +1,6 @@
 <apex:page Controller="helloController">
  <apex:form >
-    <apex:outputText styleClass="title" value="output text">
-        <!-- this parameter needs to be italic in the site.error label -->
-       </apex:outputText>
+     
 
  </apex:form>
 </apex:page>
