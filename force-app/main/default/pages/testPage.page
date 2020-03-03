@@ -1,5 +1,6 @@
 <apex:page Controller="helloController">
  <apex:form >
      <p>Line number one</p>
+     <p>Line number two</p>
  </apex:form>
 </apex:page>
