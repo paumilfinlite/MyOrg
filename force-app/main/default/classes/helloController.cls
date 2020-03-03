@@ -3,8 +3,8 @@ public with sharing class helloController {
     public helloController() {
     account = [select name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
     }
-    public PageReference save() {
-    update account;
-    return null;
-    }
+    // public PageReference save() {
+    // update account;
+    // return null;
+    // }
    }
