@@ -1,11 +1,8 @@
 <apex:page Controller="helloController">
  <apex:form >
-<p>helow....</p>
-<h3>hiiiii....</h3>
-<h3>This is new line added.......</h3>
-<p>hi..</p>
-
-
+    <apex:outputText styleClass="title" value="output text">
+        <!-- this parameter needs to be italic in the site.error label -->
+       </apex:outputText>
 
  </apex:form>
 </apex:page>
